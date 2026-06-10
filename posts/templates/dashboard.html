@@ -1,0 +1,51 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block title %}
+    CMS - Dashboard
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4 mb-4">
+    <div class="row align-items-center mb-4">
+        <div class="col-md-6">
+            <h2 class="font-weight-bold m-0">My Dashboard</h2>
+            <p class="text-muted m-0">Manage and edit your news articles</p>
+        </div>
+        <div class="col-md-6 text-right">
+            <a href="/posts/create/" class="btn btn-primary font-weight-bold">
+                <i class="fa fa-plus"></i> Create New Post
+            </a>
+        </div>
+    </div>
+    
+    <div class="row">
+        {% for n in news %}
+        <div class="col-md-4 mb-4">
+            <div class="mn-img" style="position: relative; overflow: hidden;">
+                {% if n.image %}
+                    <img src="{{ n.image.url }}" style="height: 180px; object-fit: cover; width: 100%;" />
+                {% else %}
+                    <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                {% endif %}
+                <div class="mn-title" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; padding: 15px 10px 15px 20px; background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9)); display: flex; align-items: flex-end;">
+                    <span class="badge badge-primary text-uppercase px-2 py-1 mb-1 d-inline-block" style="font-size: 0.65rem; position: absolute; top: 10px; left: 10px; z-index: 10;">
+                        {{ n.get_category_display }}
+                    </span>
+                    <a href="/posts/details/{{ n.id }}" style="display: block; width: 100%; color: #ffffff; font-size: 18px; font-weight: 400; transition: .3s;">{{ n.title }}</a>
+                </div>
+            </div>
+            <div class="mt-2 text-center">
+                <a href="/posts/edit/{{ n.id }}" class="btn btn-sm btn-warning font-weight-bold px-3 mr-1">Edit</a>
+                <a href="/posts/delete/{{ n.id }}" class="btn btn-sm btn-danger font-weight-bold px-3" onclick="return confirm('Are you sure you want to delete this post?')">Delete</a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center py-5 bg-white shadow-sm rounded">
+            <p class="h4 text-muted mb-3">You haven't written any news articles yet.</p>
+            <a href="/posts/create/" class="btn btn-primary font-weight-bold">Write Your First Post</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

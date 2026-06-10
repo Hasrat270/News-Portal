@@ -1,0 +1,126 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block title %}
+  CMS - {% if post %}Edit Post{% else %}Create Post{% endif %}
+{% endblock %}
+
+{% block content %}
+<!-- EasyMDE Markdown Editor CSS/JS -->
+<link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+<script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-dark text-white text-center py-3">
+                    <h3 class="m-0 font-weight-bold">{% if post %}Edit Post{% else %}Create New Post{% endif %}</h3>
+                </div>
+                <div class="card-body p-4 bg-white">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <div class="form-group">
+                            <label for="title" class="font-weight-bold text-dark">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Enter post title" value="{% if post %}{{ post.title }}{% elif form.title.value %}{{ form.title.value }}{% endif %}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category" class="font-weight-bold text-dark">Category</label>
+                            <select class="form-control" id="category" name="category" required>
+                                <option value="sports" {% if post.category == 'sports' or form.category.value == 'sports' %}selected{% endif %}>Sports</option>
+                                <option value="technology" {% if post.category == 'technology' or form.category.value == 'technology' or not post and not form.category.value %}selected{% endif %}>Technology</option>
+                                <option value="business" {% if post.category == 'business' or form.category.value == 'business' %}selected{% endif %}>Business</option>
+                                <option value="entertainment" {% if post.category == 'entertainment' or form.category.value == 'entertainment' %}selected{% endif %}>Entertainment</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description" class="font-weight-bold text-dark">Description (Markdown Supported)</label>
+                            <textarea class="form-control" id="description" name="description" rows="6" placeholder="Enter post description">{% if post %}{{ post.description }}{% elif form.description.value %}{{ form.description.value }}{% endif %}</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="image" class="font-weight-bold text-dark">Image</label>
+                            {% if post.image %}
+                                <div class="mb-2" id="current-image-container">
+                                    <small class="text-muted d-block">Current Image:</small>
+                                    <img src="{{ post.image.url }}" class="img-thumbnail" style="max-height: 150px; object-fit: cover;" />
+                                </div>
+                            {% endif %}
+                            
+                            <!-- Live Preview for newly selected image -->
+                            <div class="mb-2 d-none" id="image-preview-container">
+                                <small class="text-muted d-block">New Image Preview:</small>
+                                <img id="image-preview" src="#" class="img-thumbnail" style="max-height: 150px; object-fit: cover;" />
+                            </div>
+
+                            <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
+                        </div>
+                        
+                        <div class="mt-4 pt-3 border-top text-right">
+                            <a href="/posts" class="btn btn-secondary font-weight-bold px-4 mr-2">Cancel</a>
+                            <button type="submit" class="btn btn-primary font-weight-bold px-4">Save Post</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var easyMDE = new EasyMDE({
+        element: document.getElementById("description"),
+        spellChecker: false,
+        autosave: {
+            enabled: false
+        },
+        status: false,
+        renderingConfig: {
+            singleLineBreaks: false,
+            codeSyntaxHighlighting: true,
+        }
+    });
+
+    // Image live preview script
+    document.getElementById('image').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const previewContainer = document.getElementById('image-preview-container');
+        const previewImage = document.getElementById('image-preview');
+        const currentContainer = document.getElementById('current-image-container');
+        
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImage.src = e.target.result;
+                previewContainer.classList.remove('d-none');
+                if (currentContainer) {
+                    currentContainer.style.opacity = '0.4'; // Dim current image to show it is replaced
+                }
+            }
+            reader.readAsDataURL(file);
+        } else {
+            previewImage.src = '#';
+            previewContainer.classList.add('d-none');
+            if (currentContainer) {
+                currentContainer.style.opacity = '1';
+            }
+        }
+    });
+
+    // Sync EasyMDE and validate before submitting
+    document.querySelector('form').addEventListener('submit', function(event) {
+        // Sync easyMDE content back to the hidden textarea
+        const descriptionValue = easyMDE.value().trim();
+        document.getElementById('description').value = descriptionValue;
+        
+        if (!descriptionValue) {
+            alert('Please enter a description.');
+            event.preventDefault();
+            return false;
+        }
+    });
+</script>
+{% endblock %}
