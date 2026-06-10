@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<!-- Create Post Banner -->
+<!-- Banner -->
 <div class="container mt-4 mb-2">
     <div class="row">
         <div class="col-md-12 text-right">
@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<!-- Top News Start-->
+<!-- Top News -->
 <div class="top-news">
     <div class="container">
         <div class="row">
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     {% empty %}
-                    <!-- Placeholder Slide 1 -->
+                    <!-- Slide 1 -->
                     <div class="col-12">
                         <div class="tn-img">
                             <img src="{% static 'img/news-450x350-1.jpg' %}" style="height: 350px; object-fit: cover; width: 100%;" />
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Placeholder Slide 2 -->
+                    <!-- Slide 2 -->
                     <div class="col-12">
                         <div class="tn-img">
                             <img src="{% static 'img/news-450x350-2.jpg' %}" style="height: 350px; object-fit: cover; width: 100%;" />
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     {% empty %}
-                    <!-- 4 Right Grid Placeholders -->
+                    <!-- Placeholders -->
                     <div class="col-md-6">
                         <div class="tn-img">
                             <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 165px; object-fit: cover; width: 100%;" />
@@ -119,13 +119,13 @@
         </div>
     </div>
 </div>
-<!-- Top News End-->
+<!-- /Top News -->
 
-<!-- Category News Start (Sports & Tech) -->
+<!-- Category News 1 -->
 <div class="cat-news mt-4">
     <div class="container">
         <div class="row">
-            <!-- Sports Column -->
+            <!-- Sports -->
             <div class="col-md-6">
                 <h2 class="font-weight-bold mb-3">Sports</h2>
                 <div class="row cn-slider">
@@ -143,7 +143,7 @@
                         </div>
                     </div>
                     {% empty %}
-                    <!-- 4 Dummy Slides for Sports to enable Slick arrows -->
+                    <!-- Dummy Slides -->
                     <div class="col-md-6">
                         <div class="cn-img">
                             <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
@@ -179,7 +179,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <!-- Tech Column -->
+            <!-- Tech -->
             <div class="col-md-6">
                 <h2 class="font-weight-bold mb-3">Technology</h2>
                 <div class="row cn-slider">
@@ -197,7 +197,7 @@
                         </div>
                     </div>
                     {% empty %}
-                    <!-- 4 Dummy Slides for Tech to enable Slick arrows -->
+                    <!-- Dummy Slides -->
                     <div class="col-md-6">
                         <div class="cn-img">
                             <img src="{% static 'img/news-350x223-4.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
@@ -236,13 +236,13 @@
         </div>
     </div>
 </div>
-<!-- Category News End -->
+<!-- /Category News 1 -->
 
-<!-- Category News Start (Business & Entertainment) -->
+<!-- Category News 2 -->
 <div class="cat-news mt-4">
     <div class="container">
         <div class="row">
-            <!-- Business Column -->
+            <!-- Business -->
             <div class="col-md-6">
                 <h2 class="font-weight-bold mb-3">Business</h2>
                 <div class="row cn-slider">
@@ -260,7 +260,7 @@
                         </div>
                     </div>
                     {% empty %}
-                    <!-- 4 Dummy Slides for Business to enable Slick arrows -->
+                    <!-- Dummy Slides -->
                     <div class="col-md-6">
                         <div class="cn-img">
                             <img src="{% static 'img/news-350x223-5.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
@@ -296,7 +296,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <!-- Entertainment Column -->
+            <!-- Entertainment -->
             <div class="col-md-6">
                 <h2 class="font-weight-bold mb-3">Entertainment</h2>
                 <div class="row cn-slider">
@@ -314,7 +314,7 @@
                         </div>
                     </div>
                     {% empty %}
-                    <!-- 4 Dummy Slides for Entertainment to enable Slick arrows -->
+                    <!-- Dummy Slides -->
                     <div class="col-md-6">
                         <div class="cn-img">
                             <img src="{% static 'img/news-350x223-2.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
@@ -353,9 +353,9 @@
         </div>
     </div>
 </div>
-<!-- Category News End -->
+<!-- /Category News 2 -->
 
-<!-- Tab News Start-->
+<!-- Tab News -->
 <div class="tab-news mt-4">
     <div class="container">
         <div class="row">
@@ -641,9 +641,9 @@
         </div>
     </div>
 </div>
-<!-- Tab News End-->
+<!-- /Tab News -->
 
-<!-- Main News Start-->
+<!-- Main News -->
 <div class="main-news mt-4">
     <div class="container">
         <div class="row">
@@ -704,5 +704,5 @@
         </div>
     </div>
 </div>
-<!-- Main News End-->
+<!-- /Main News -->
 {% endblock %}

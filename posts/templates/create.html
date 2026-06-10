@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<!-- EasyMDE Markdown Editor CSS/JS -->
+<!-- Editor CSS/JS -->
 <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
 <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
 
@@ -50,7 +50,7 @@
                                 </div>
                             {% endif %}
                             
-                            <!-- Live Preview for newly selected image -->
+                            <!-- Image Preview -->
                             <div class="mb-2 d-none" id="image-preview-container">
                                 <small class="text-muted d-block">New Image Preview:</small>
                                 <img id="image-preview" src="#" class="img-thumbnail" style="max-height: 150px; object-fit: cover;" />
@@ -60,7 +60,7 @@
                         </div>
                         
                         <div class="mt-4 pt-3 border-top text-right">
-                            <a href="/posts" class="btn btn-secondary font-weight-bold px-4 mr-2">Cancel</a>
+                            <a href="{% url 'posts' %}" class="btn btn-secondary font-weight-bold px-4 mr-2">Cancel</a>
                             <button type="submit" class="btn btn-primary font-weight-bold px-4">Save Post</button>
                         </div>
                     </form>
@@ -84,7 +84,7 @@
         }
     });
 
-    // Image live preview script
+    // Image preview
     document.getElementById('image').addEventListener('change', function(event) {
         const file = event.target.files[0];
         const previewContainer = document.getElementById('image-preview-container');
@@ -97,7 +97,7 @@
                 previewImage.src = e.target.result;
                 previewContainer.classList.remove('d-none');
                 if (currentContainer) {
-                    currentContainer.style.opacity = '0.4'; // Dim current image to show it is replaced
+                    currentContainer.style.opacity = '0.4'; // Dim current image
                 }
             }
             reader.readAsDataURL(file);
@@ -110,9 +110,9 @@
         }
     });
 
-    // Sync EasyMDE and validate before submitting
+    // Sync & validate
     document.querySelector('form').addEventListener('submit', function(event) {
-        // Sync easyMDE content back to the hidden textarea
+        // Sync content
         const descriptionValue = easyMDE.value().trim();
         document.getElementById('description').value = descriptionValue;
         

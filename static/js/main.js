@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
     
-    // Sticky Navbar
+    // Sticky nav
     $(window).scroll(function () {
         if ($(this).scrollTop() > 150) {
             $('.nav-bar').addClass('nav-sticky');
@@ -11,7 +11,7 @@
     });
     
     
-    // Dropdown on mouse hover
+    // Dropdown hover
     $(document).ready(function () {
         function toggleNavbarMethod() {
             if ($(window).width() > 768) {
@@ -29,7 +29,7 @@
     });
     
     
-    // Back to top button
+    // Back to top
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('.back-to-top').fadeIn('slow');
@@ -43,10 +43,10 @@
     });
     
     
-    // Top News Slider
+    // Top slider
     $('.tn-slider').each(function() {
         var $slider = $(this);
-        // Only initialize if there is more than 1 slide
+        // Init if >1 slide
         if ($slider.children().length > 1) {
             $slider.slick({
                 autoplay: true,
@@ -59,10 +59,10 @@
     });
     
     
-    // Category News Slider
+    // Cat slider
     $('.cn-slider').each(function() {
         var $slider = $(this);
-        // Only initialize if there are more than 2 slides (since slidesToShow is 2)
+        // Init if >2 slides
         if ($slider.children().length > 2) {
             $slider.slick({
                 autoplay: false,
@@ -101,10 +101,10 @@
     });
     
     
-    // Related News Slider
+    // Related slider
     $('.sn-slider').each(function() {
         var $slider = $(this);
-        // Only initialize if there are more than 3 slides (since slidesToShow is 3)
+        // Init if >3 slides
         if ($slider.children().length > 3) {
             $slider.slick({
                 autoplay: false,

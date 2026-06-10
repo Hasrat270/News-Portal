@@ -50,7 +50,7 @@ def details(request, id):
 def edit(request, id):
     post = get_object_or_404(Post, id=id)
     
-    # ACL Check: Allow edit if post has no author OR the logged-in user is the author
+    # Check auth
     if post.author and post.author != request.user:
         return HttpResponseForbidden("You are not authorized to edit this post.")
         
@@ -67,7 +67,7 @@ def edit(request, id):
 def delete(request, id):
     post = get_object_or_404(Post, id=id)
     
-    # ACL Check: Allow delete if post has no author OR the logged-in user is the author
+    # Check auth
     if post.author and post.author != request.user:
         return HttpResponseForbidden("You are not authorized to delete this post.")
         

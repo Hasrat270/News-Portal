@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-<!-- Single News Start-->
+<!-- Single News -->
 <div class="single-news mt-4 mb-4">
     <div class="container">
         <div class="row">
@@ -34,7 +34,7 @@
                             <a href="/posts/edit/{{ post.id }}" class="btn btn-warning font-weight-bold px-4">Edit Post</a>
                             <a href="/posts/delete/{{ post.id }}" class="btn btn-danger font-weight-bold px-4" onclick="return confirm('Are you sure you want to delete this post?')">Delete Post</a>
                         {% endif %}
-                        <a href="/posts" class="btn btn-secondary font-weight-bold px-4 ml-2">Back to List</a>
+                        <a href="{% url 'posts' %}" class="btn btn-secondary font-weight-bold px-4 ml-2">Back to List</a>
                     </div>
                 </div>
             </div>
@@ -50,5 +50,5 @@
         </div>
     </div>
 </div>
-<!-- Single News End-->
+<!-- /Single News -->
 {% endblock %}

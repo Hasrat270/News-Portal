@@ -1,10 +1,13 @@
 #urls.py
 
 from django.urls import path
+from django.views.generic.base import RedirectView
 from . import views
 
 urlpatterns = [
-	path("posts",views.posts, name="posts"),
+	path("", views.posts, name="posts"),
+	path("posts", RedirectView.as_view(url='/', permanent=True)),
+	path("posts/", RedirectView.as_view(url='/', permanent=True)),
 	path("posts/create/",views.create, name="create"),
 	path("posts/details/<int:id>",views.details, name="details"),
 	path("posts/edit/<int:id>",views.edit, name="edit"),

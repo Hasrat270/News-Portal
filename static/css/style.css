@@ -1,6 +1,4 @@
-/**********************************/
-/********** General CSS ***********/
-/**********************************/
+/* General */
 body {
     color: #000000;
     font-family: 'Montserrat', sans-serif;
@@ -72,9 +70,7 @@ h6 {
 }
 
 
-/**********************************/
-/********* Form Input CSS *********/
-/**********************************/
+/* Form Input */
 .form-control,
 .custom-select {
     width: 100%;
@@ -120,9 +116,7 @@ button.btn:hover {
 }
 
 
-/**********************************/
-/*********** Top Bar CSS **********/
-/**********************************/
+/* Top Bar */
 .top-bar {
     padding: 2px 0;
     background: #000000;
@@ -182,9 +176,7 @@ button.btn:hover {
 }
 
 
-/**********************************/
-/*********** Brand CSS ************/
-/**********************************/
+/* Brand */
 .brand {
     margin: 15px 0;
     background: #ffffff;
@@ -263,9 +255,7 @@ button.btn:hover {
 }
 
 
-/**********************************/
-/*********** Nav Bar CSS **********/
-/**********************************/
+/* Nav Bar */
 .nav-bar {
     position: relative;
 }
@@ -373,9 +363,7 @@ button.btn:hover {
 }
 
 
-/**********************************/
-/********** Top News CSS **********/
-/**********************************/
+/* Top News */
 .top-news {
     position: relative;
     width: 100%;
@@ -483,9 +471,7 @@ button.btn:hover {
 }
 
 
-/**********************************/
-/******* Category News CSS ********/
-/**********************************/
+/* Category News */
 .cat-news {
     position: relative;
     width: 100%;
@@ -587,9 +573,7 @@ button.btn:hover {
 }
 
 
-/**********************************/
-/********** Tab News CSS **********/
-/**********************************/
+/* Tab News */
 .tab-news {
     position: relative;
 }
@@ -647,9 +631,7 @@ button.btn:hover {
 
 
 
-/**********************************/
-/********** Main News CSS *********/
-/**********************************/
+/* Main News */
 .main-news {
     position: relative;
     width: 100%;
@@ -744,9 +726,7 @@ button.btn:hover {
 }
 
 
-/**********************************/
-/********* Breadcrumb CSS *********/
-/**********************************/
+/* Breadcrumb */
 .breadcrumb-wrap {
     position: relative;
     width: 100%;
@@ -768,9 +748,7 @@ button.btn:hover {
 }
 
 
-/**********************************/
-/********* Single News CSS ********/
-/**********************************/
+/* Single News */
 .single-news {
     position: relative;
     width: 100%;
@@ -894,9 +872,7 @@ button.btn:hover {
 }
 
 
-/**********************************/
-/*********** Sidebar CSS **********/
-/**********************************/
+/* Sidebar */
 .sidebar {
     position: relative;
     width: 100%;
@@ -1084,9 +1060,7 @@ button.btn:hover {
 }
 
 
-/**********************************/
-/********** Contact CSS ***********/
-/**********************************/
+/* Contact */
 .contact {
     position: relative;
     padding: 25px 0 15px 0;
@@ -1139,9 +1113,7 @@ button.btn:hover {
 }
 
 
-/**********************************/
-/********** Footer CSS ************/
-/**********************************/
+/* Footer */
 .footer {
     position: relative;
     padding: 60px 0 0 0;
@@ -1283,9 +1255,7 @@ button.btn:hover {
 }
 
 
-/**********************************/
-/******** Footer Menu CSS *********/
-/**********************************/
+/* Footer Menu */
 .footer-menu {
     position: relative;
     background: #111111;
@@ -1320,9 +1290,7 @@ button.btn:hover {
 }
 
 
-/**********************************/
-/******** Footer Bottom CSS *******/
-/**********************************/
+/* Footer Bottom */
 .footer-bottom {
     position: relative;
     padding: 25px 0;
@@ -1361,9 +1329,7 @@ button.btn:hover {
     } 
 }
 
-/**********************************/
-/*** Theme Color Overrides (CSS) ***/
-/**********************************/
+/* Theme Color Overrides (CSS) */
 :root {
     --theme-color: #FF6F61;
     --theme-hover: #e05d50;
@@ -1463,7 +1429,60 @@ button.btn:hover {
     border-color: var(--theme-color) !important;
 }
 
-/* Card Header Colors */
+/* Card Header Colors & Visibility Fixes */
 .card-header.bg-dark {
     background-color: var(--theme-black) !important;
+}
+
+/* Force header tags inside dark card headers to be white and readable */
+.card-header.bg-dark h1,
+.card-header.bg-dark h2,
+.card-header.bg-dark h3,
+.card-header.bg-dark h4,
+.card-header.bg-dark h5,
+.card-header.bg-dark h6,
+.card-header.bg-dark .m-0,
+.card-header.bg-dark .font-weight-bold {
+    color: #ffffff !important;
+}
+
+/* Harmonize form control focuses with theme colors */
+.form-control:focus,
+.custom-select:focus {
+    border-color: var(--theme-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 111, 97, 0.15) !important;
+}
+
+/* Harmonize invalid form states and error listings with theme danger color */
+.text-danger,
+.invalid-feedback,
+.errorlist,
+.errorlist li {
+    color: var(--theme-danger) !important;
+}
+
+.errorlist {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 15px 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.form-control.is-invalid {
+    border-color: var(--theme-danger) !important;
+}
+
+.form-control.is-invalid:focus {
+    border-color: var(--theme-danger) !important;
+    box-shadow: 0 0 0 0.2rem rgba(192, 57, 43, 0.15) !important;
+}
+
+/* Harmonize alert states */
+.alert-danger {
+    background-color: #fdf2f2 !important;
+    border-color: #fde8e8 !important;
+    color: var(--theme-danger) !important;
+    font-size: 0.875rem;
+    border-radius: 4px;
 }
