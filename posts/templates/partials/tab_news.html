@@ -1,0 +1,287 @@
+<!-- Tab News -->
+<div class="tab-news mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-pills nav-justified">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="pill" href="#featured">Featured News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#popular">Popular News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#latest">Latest News</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="featured" class="container tab-pane active">
+                        {% for n in news|slice:":3" %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                {% if n.image %}
+                                    <img src="{{ n.image.url }}" style="height: 80px; width: 120px; object-fit: cover;" />
+                                {% else %}
+                                    <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                                {% endif %}
+                            </div>
+                            <div class="tn-title">
+                                <a href="/posts/details/{{ n.id }}">{{ n.title }}</a>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">Global Summit Focuses on Renewable Energy Integration</a>
+                            </div>
+                        </div>
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-2.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">New Space Mission to Explore Saturn's Moons Launched</a>
+                            </div>
+                        </div>
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-3.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">Innovations in Healthcare Boost Life Expectancy Estimates</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div id="popular" class="container tab-pane fade">
+                        {% for n in news|slice:"1:4" %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                {% if n.image %}
+                                    <img src="{{ n.image.url }}" style="height: 80px; width: 120px; object-fit: cover;" />
+                                {% else %}
+                                    <img src="{% static 'img/news-350x223-3.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                                {% endif %}
+                            </div>
+                            <div class="tn-title">
+                                <a href="/posts/details/{{ n.id }}">{{ n.title }}</a>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-3.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">Cybersecurity Trends: Protecting Your Digital Identity</a>
+                            </div>
+                        </div>
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-4.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">How Modern Architecture is Evolving to Combat Climate Change</a>
+                            </div>
+                        </div>
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-5.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">The Rise of Electric Vehicles in Major Metropolitan Areas</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div id="latest" class="container tab-pane fade">
+                        {% for n in news|slice:":3" %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                {% if n.image %}
+                                    <img src="{{ n.image.url }}" style="height: 80px; width: 120px; object-fit: cover;" />
+                                {% else %}
+                                    <img src="{% static 'img/news-350x223-5.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                                {% endif %}
+                            </div>
+                            <div class="tn-title">
+                                <a href="/posts/details/{{ n.id }}">{{ n.title }}</a>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-5.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">Local Community Garden Project Receives International Grant</a>
+                            </div>
+                        </div>
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">New Artificial Intelligence Tools Released for Artists</a>
+                            </div>
+                        </div>
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-2.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">Exploring the Remote Islands: A Wildlife Conservation Journey</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <ul class="nav nav-pills nav-justified">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="pill" href="#m-viewed">Most Viewed</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#m-read">Most Read</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#m-recent">Most Recent</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="m-viewed" class="container tab-pane active">
+                        {% for n in news|slice:":3" %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                {% if n.image %}
+                                    <img src="{{ n.image.url }}" style="height: 80px; width: 120px; object-fit: cover;" />
+                                {% else %}
+                                    <img src="{% static 'img/news-350x223-5.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                                {% endif %}
+                            </div>
+                            <div class="tn-title">
+                                <a href="/posts/details/{{ n.id }}">{{ n.title }}</a>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-5.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">Stock Markets Rebound After Major Economic Policy Shifts</a>
+                            </div>
+                        </div>
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-4.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">Behind the Scenes of the Latest Science Fiction Blockbuster</a>
+                            </div>
+                        </div>
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-3.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">New Rules and Formats Announced for the Upcoming Season</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div id="m-read" class="container tab-pane fade">
+                        {% for n in news|slice:"1:4" %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                {% if n.image %}
+                                    <img src="{{ n.image.url }}" style="height: 80px; width: 120px; object-fit: cover;" />
+                                {% else %}
+                                    <img src="{% static 'img/news-350x223-2.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                                {% endif %}
+                            </div>
+                            <div class="tn-title">
+                                <a href="/posts/details/{{ n.id }}">{{ n.title }}</a>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-2.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">Tips for Maintaining Work-Life Balance in the Hybrid Era</a>
+                            </div>
+                        </div>
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">Top Culinary Trends: Reimagining Traditional Recipes</a>
+                            </div>
+                        </div>
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-3.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">New Discoveries in Archeology Shed Light on Ancient Cities</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div id="m-recent" class="container tab-pane fade">
+                        {% for n in news|slice:":3" %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                {% if n.image %}
+                                    <img src="{{ n.image.url }}" style="height: 80px; width: 120px; object-fit: cover;" />
+                                {% else %}
+                                    <img src="{% static 'img/news-350x223-4.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                                {% endif %}
+                            </div>
+                            <div class="tn-title">
+                                <a href="/posts/details/{{ n.id }}">{{ n.title }}</a>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-4.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">Global Tourism Rates Reach Pre-Pandemic Levels</a>
+                            </div>
+                        </div>
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-5.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">Electric Grid Upgrades Aim to Prevent Summer Blackouts</a>
+                            </div>
+                        </div>
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 80px; width: 120px; object-fit: cover;" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="">New Independent Film Wins Grand Jury Prize at Sundance</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Tab News -->

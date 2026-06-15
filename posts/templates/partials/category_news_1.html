@@ -1,0 +1,116 @@
+<!-- Category News 1 -->
+<div class="cat-news mt-4">
+    <div class="container">
+        <div class="row">
+            <!-- Sports -->
+            <div class="col-md-6">
+                <h2 class="font-weight-bold mb-3">Sports</h2>
+                <div class="row cn-slider">
+                    {% for n in sports_news %}
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            {% if n.image %}
+                                <img src="{{ n.image.url }}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            {% else %}
+                                <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            {% endif %}
+                            <div class="cn-title">
+                                <a href="/posts/details/{{ n.id }}">{{ n.title }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <!-- Dummy Slides -->
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">World-Class Athletes Prepare for the Summer Olympics</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-2.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">Underdog Team Wins Championship After Thrilling Final</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-3.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">Football Club Signs Promising Young Striker to Long-Term Deal</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-4.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">Modern Training Facilities Help Athletes Prevent Severe Injuries</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- Tech -->
+            <div class="col-md-6">
+                <h2 class="font-weight-bold mb-3">Technology</h2>
+                <div class="row cn-slider">
+                    {% for n in tech_news %}
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            {% if n.image %}
+                                <img src="{{ n.image.url }}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            {% else %}
+                                <img src="{% static 'img/news-350x223-4.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            {% endif %}
+                            <div class="cn-title">
+                                <a href="/posts/details/{{ n.id }}">{{ n.title }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <!-- Dummy Slides -->
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-4.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">Next-Gen Smart Devices Showcase Sleek Interfaces at Tech Expo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-5.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">Developers Embrace Hybrid Frameworks for Faster App Deployment</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">Generative AI Tools Transforming Content Creation Industry</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-2.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">New Data Protection Laws Reinforce Online Privacy and Security</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Category News 1 -->

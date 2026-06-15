@@ -1,0 +1,103 @@
+<!-- Top News -->
+<div class="top-news">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 tn-left">
+                <div class="row tn-slider">
+                    {% for n in news|slice:":5" %}
+                    <div class="col-12">
+                        <div class="tn-img">
+                            {% if n.image %}
+                                <img src="{{ n.image.url }}" style="height: 350px; object-fit: cover; width: 100%;" />
+                            {% else %}
+                                <img src="{% static 'img/news-450x350-1.jpg' %}" style="height: 350px; object-fit: cover; width: 100%;" />
+                            {% endif %}
+                            <div class="tn-title">
+                                <span class="badge badge-primary text-uppercase px-2 py-1 mb-2 d-inline-block" style="font-size: 0.75rem; position: absolute; top: 15px; left: 15px; z-index: 10;">
+                                    {{ n.get_category_display }}
+                                </span>
+                                <a href="/posts/details/{{ n.id }}">{{ n.title }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <!-- Slide 1 -->
+                    <div class="col-12">
+                        <div class="tn-img">
+                            <img src="{% static 'img/news-450x350-1.jpg' %}" style="height: 350px; object-fit: cover; width: 100%;" />
+                            <div class="tn-title">
+                                <a href="/posts/create/">Global Summit Reaches Landmark Deal on Carbon Emissions</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="col-12">
+                        <div class="tn-img">
+                            <img src="{% static 'img/news-450x350-2.jpg' %}" style="height: 350px; object-fit: cover; width: 100%;" />
+                            <div class="tn-title">
+                                <a href="/posts/create/">Mars Rover Discovers Evidence of Ancient Water Channels</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-6 tn-right">
+                <div class="row">
+                    {% for n in news|slice:"5:9" %}
+                    <div class="col-md-6">
+                        <div class="tn-img">
+                            {% if n.image %}
+                                <img src="{{ n.image.url }}" style="height: 165px; object-fit: cover; width: 100%;" />
+                            {% else %}
+                                <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 165px; object-fit: cover; width: 100%;" />
+                            {% endif %}
+                            <div class="tn-title">
+                                <span class="badge badge-primary text-uppercase px-2 py-1 mb-1 d-inline-block" style="font-size: 0.65rem; position: absolute; top: 10px; left: 10px; z-index: 10;">
+                                    {{ n.get_category_display }}
+                                </span>
+                                <a href="/posts/details/{{ n.id }}">{{ n.title }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <!-- Placeholders -->
+                    <div class="col-md-6">
+                        <div class="tn-img">
+                            <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 165px; object-fit: cover; width: 100%;" />
+                            <div class="tn-title">
+                                <a href="">Stock Markets Rebound Amid Favorable Interest Rate Projection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tn-img">
+                            <img src="{% static 'img/news-350x223-2.jpg' %}" style="height: 165px; object-fit: cover; width: 100%;" />
+                            <div class="tn-title">
+                                <a href="">Tech Giants Announce New Standards for Data Security</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tn-img">
+                            <img src="{% static 'img/news-350x223-3.jpg' %}" style="height: 165px; object-fit: cover; width: 100%;" />
+                            <div class="tn-title">
+                                <a href="">Championship Finals Conclude with Dramatic Overtime Finish</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tn-img">
+                            <img src="{% static 'img/news-350x223-4.jpg' %}" style="height: 165px; object-fit: cover; width: 100%;" />
+                            <div class="tn-title">
+                                <a href="">Deep Sea Expedition Discovers Rare Marine Species</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Top News -->

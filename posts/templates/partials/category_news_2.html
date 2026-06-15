@@ -1,0 +1,116 @@
+<!-- Category News 2 -->
+<div class="cat-news mt-4">
+    <div class="container">
+        <div class="row">
+            <!-- Business -->
+            <div class="col-md-6">
+                <h2 class="font-weight-bold mb-3">Business</h2>
+                <div class="row cn-slider">
+                    {% for n in business_news %}
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            {% if n.image %}
+                                <img src="{{ n.image.url }}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            {% else %}
+                                <img src="{% static 'img/news-350x223-5.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            {% endif %}
+                            <div class="cn-title">
+                                <a href="/posts/details/{{ n.id }}">{{ n.title }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <!-- Dummy Slides -->
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-5.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">Global Market Indexes Stable Ahead of Central Bank Policy Update</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-3.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">Fintech Startup Secures Funding Round to Expand Global Reach</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-4.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">New Free Trade Agreement Expected to Boost Economic Growth</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">Smart Investment Strategies for Navigating Market Volatility</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- Entertainment -->
+            <div class="col-md-6">
+                <h2 class="font-weight-bold mb-3">Entertainment</h2>
+                <div class="row cn-slider">
+                    {% for n in entertainment_news %}
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            {% if n.image %}
+                                <img src="{{ n.image.url }}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            {% else %}
+                                <img src="{% static 'img/news-350x223-2.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            {% endif %}
+                            <div class="cn-title">
+                                <a href="/posts/details/{{ n.id }}">{{ n.title }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <!-- Dummy Slides -->
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-2.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">Summer Sci-Fi Blockbuster Shatters Weekend Box Office Records</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-1.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">Iconic Rock Band Announces Worldwide Reunion Tour Schedule</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-3.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">Stars Align on the Red Carpet for Annual Cinema Awards</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{% static 'img/news-350x223-4.jpg' %}" style="height: 180px; object-fit: cover; width: 100%;" />
+                            <div class="cn-title">
+                                <a href="">Classic Theater Production Gets Modern Twist in Off-Broadway Debut</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Category News 2 -->
